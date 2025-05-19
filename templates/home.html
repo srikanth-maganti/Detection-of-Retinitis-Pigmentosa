@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detection Of Retinitis Pigmentosa</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #34495e;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input[type="file"] {
+      border: 2px dashed #bdc3c7;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.3s;
+      background-color: #f9f9f9;
+    }
+
+    input[type="file"]:hover {
+      border-color: #2980b9;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 20px 30px;
+      background-color: #ecf0f1;
+      border-left: 5px solid #3498db;
+      border-radius: 8px;
+      color: #2c3e50;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      max-width: 400px;
+      text-align: center;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Detection Of Retinitis Pigmentosa APP</h1>
+  <p>Upload image, and get quick report</p>
+
+  <form action="/verify" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Upload</button>
+  </form>
+
+  {% if result %}
+  <div class="result-box">
+    {{ result }}
+  </div>
+  {% endif %}
+
+</body>
+</html>
