@@ -96,7 +96,17 @@
   <div class="result-box">
     {{ result }}
   </div>
+  
   {% endif %}
+<script>
+  const fileInput = document.querySelector('input[type="file"]');
+  const resultBox = document.querySelector('.result-box');
 
+  fileInput.addEventListener('change', () => {
+    if (resultBox) {
+      resultBox.remove(); // Or: resultBox.style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
